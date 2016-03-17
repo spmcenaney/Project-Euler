@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * @author Mathew Fan
+ * @author Matthew Fan
  * @version 1.0
  */
 public class StringMath
