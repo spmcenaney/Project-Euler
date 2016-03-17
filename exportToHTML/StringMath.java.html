@@ -1,0 +1,556 @@
+<html>
+<head>
+<title>StringMath.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(0,0,255); }
+.s5 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+StringMath.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList; 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s3">@author </span><span class="s2">Mathew Fan 
+ * </span><span class="s3">@version </span><span class="s2">1.0 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">StringMath 
+{ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@return </span><span class="s2">boolen if String is equal to zero 
+    */</span><span class="s1"> 
+   </span><span class="s0">static boolean </span><span class="s1">isZero(String number) 
+   { 
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; number.length(); i ++) 
+      {   
+         </span><span class="s0">if</span><span class="s1">(!(number.substring(i , i + </span><span class="s4">1</span><span class="s1">).equals(</span><span class="s5">&quot;0&quot;</span><span class="s1">))) 
+         { 
+            </span><span class="s0">return false</span><span class="s1">; 
+         } 
+      } 
+      </span><span class="s0">return true</span><span class="s1">; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@param </span><span class="s2">numLeadZero 
+    * </span><span class="s3">@return </span><span class="s2">String number with leading zero 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String addLeadingZero(String number , </span><span class="s0">int </span><span class="s1">numLeadZero) 
+   {    
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; numLeadZero; i ++) 
+      { 
+         number = </span><span class="s5">&quot;0&quot; </span><span class="s1">+ number; 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">number; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@param </span><span class="s2">numTrailZero 
+    * </span><span class="s3">@return </span><span class="s2">String number with Trailing Zero 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String addTrailingZero(String number , </span><span class="s0">int </span><span class="s1">numTrailZero) 
+   { 
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; numTrailZero; i ++) 
+      { 
+         number += </span><span class="s5">&quot;0&quot;</span><span class="s1">; 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">number; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@return </span><span class="s2">number with removed leading zero 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String removeLeadingZero(String number) 
+   { 
+      String temp; 
+       
+      </span><span class="s0">if</span><span class="s1">(isZero(number)) 
+      { 
+         </span><span class="s0">return </span><span class="s5">&quot;0&quot;</span><span class="s1">; 
+      } 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = number.length();;i --) 
+      {   
+         </span><span class="s0">if</span><span class="s1">(number.substring(</span><span class="s4">0 </span><span class="s1">, </span><span class="s4">1</span><span class="s1">).equals(</span><span class="s5">&quot;0&quot;</span><span class="s1">)) 
+         { 
+            number = number.substring(</span><span class="s4">1 </span><span class="s1">, i); 
+         } 
+         </span><span class="s0">else</span><span class="s1"> 
+         { 
+            </span><span class="s0">return </span><span class="s1">number; 
+         } 
+      } 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@return </span><span class="s2">number with removed trailing zero or &quot;Like no U&quot; if no trailing zeros 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String removeTrailingZero(String number) 
+   { 
+      </span><span class="s0">return </span><span class="s5">&quot;Like no U&quot;</span><span class="s1">; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">number with longer length or &quot;Like no U&quot; if numbers are equal 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String findLong(String num1 , String num2) 
+   { 
+      </span><span class="s0">if</span><span class="s1">(num1.length() &gt; num2.length()) 
+      { 
+         </span><span class="s0">return </span><span class="s1">num1; 
+      } 
+      </span><span class="s0">else if</span><span class="s1">(num2.length() &gt; num1.length()) 
+      { 
+         </span><span class="s0">return </span><span class="s1">num2; 
+      } 
+   </span><span class="s2">// else</span><span class="s1"> 
+   </span><span class="s2">// {</span><span class="s1"> 
+         </span><span class="s0">return </span><span class="s5">&quot;Like no U&quot;</span><span class="s1">; 
+   </span><span class="s2">// }</span><span class="s1"> 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">number with shorter length or &quot;Like no U&quot; if numbers are equal 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String findShort(String num1 , String num2) 
+   { 
+      </span><span class="s0">if</span><span class="s1">(num1.length() &lt; num2.length()) 
+      { 
+         </span><span class="s0">return </span><span class="s1">num1; 
+      } 
+      </span><span class="s0">else if</span><span class="s1">(num2.length() &lt; num1.length()) 
+      { 
+         </span><span class="s0">return </span><span class="s1">num2; 
+      }    
+   </span><span class="s2">// else</span><span class="s1"> 
+   </span><span class="s2">// {</span><span class="s1"> 
+         </span><span class="s0">return </span><span class="s5">&quot;Like no U&quot;</span><span class="s1">; 
+   </span><span class="s2">// }</span><span class="s1"> 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">n1 
+    * </span><span class="s3">@param </span><span class="s2">n2 
+    * </span><span class="s3">@return </span><span class="s2">number with larger value or &quot;Like no U&quot; if numbers are equal 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String findLarge(String n1 , String n2) 
+   { 
+      </span><span class="s0">int </span><span class="s1">d1; 
+      </span><span class="s0">int </span><span class="s1">d2; 
+       
+      String num1 = n1; 
+      String num2 = n2; 
+ 
+      </span><span class="s0">if</span><span class="s1">(!isZero(num1)) 
+      { 
+         num1 = removeLeadingZero(num1); 
+      } 
+       
+      </span><span class="s0">if</span><span class="s1">(!isZero(num2)) 
+      { 
+         num2 = removeLeadingZero(num2); 
+      } 
+       
+      </span><span class="s0">int </span><span class="s1">length = findLong(num1 , num2).length(); 
+       
+      </span><span class="s0">if</span><span class="s1">(findLong(num1 , num2).equals(num1)) 
+      { 
+         num2 = addLeadingZero(num2 , num1.length() - num2.length()); 
+      } 
+      </span><span class="s0">else</span><span class="s1"> 
+      { 
+         num1 = addLeadingZero(num1 , num2.length() - num1.length()); 
+      } 
+       
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; num1.length(); i ++) 
+      { 
+         d1 = Integer.parseInt(num1.substring(i , i + </span><span class="s4">1</span><span class="s1">)); 
+         d2 = Integer.parseInt(num2.substring(i , i + </span><span class="s4">1</span><span class="s1">)); 
+          
+         </span><span class="s0">if</span><span class="s1">(d1 &gt; d2) 
+         { 
+            </span><span class="s0">return </span><span class="s1">n1; 
+         } 
+         </span><span class="s0">else if</span><span class="s1">(d2 &gt; d1) 
+         { 
+            </span><span class="s0">return </span><span class="s1">n2; 
+         } 
+      } 
+      </span><span class="s0">return </span><span class="s5">&quot;Like no U&quot;</span><span class="s1">; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">number with smaller value or &quot;Like no U&quot; if numbers are equal 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String findSmall(String num1 , String num2) 
+   { 
+      </span><span class="s0">return </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@return </span><span class="s2">number of digits in String number 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String digitSum(String number) 
+   { 
+      String result = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+      String tempSub; 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; number.length(); i ++) 
+      { 
+         tempSub = number.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+         result = add(result , tempSub); 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">sum of num1 and num2 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String add(String  num1 , String num2) 
+   { 
+      String result = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">boolean </span><span class="s1">carry = </span><span class="s0">false</span><span class="s1">; 
+       
+      </span><span class="s0">int </span><span class="s1">numLength; 
+      </span><span class="s0">int </span><span class="s1">d1; 
+      </span><span class="s0">int </span><span class="s1">d2; 
+      </span><span class="s0">int </span><span class="s1">dr; 
+       
+      String digit1; 
+      String digit2; 
+    
+    
+      </span><span class="s0">if</span><span class="s1">(findLong(num1 , num2) == num1) 
+      { 
+         num2 = addLeadingZero(num2 , num1.length() - num2.length()); 
+      } 
+      </span><span class="s0">else if</span><span class="s1">(findLong(num1 , num2) == num2) 
+      { 
+         num1 = addLeadingZero(num1 , num2.length() - num1.length()); 
+      } 
+       
+      numLength = num1.length(); 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = numLength - </span><span class="s4">1</span><span class="s1">; i &gt;= </span><span class="s4">0</span><span class="s1">; i --) 
+      { 
+         digit1 = num1.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+         digit2 = num2.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+          
+         d1 = Integer.parseInt(digit1); 
+         d2 = Integer.parseInt(digit2); 
+          
+         dr = d1 + d2; 
+          
+         </span><span class="s0">if</span><span class="s1">(carry == </span><span class="s0">true</span><span class="s1">) 
+         { 
+            dr ++; 
+         } 
+          
+         </span><span class="s0">if</span><span class="s1">(dr &gt; </span><span class="s4">9</span><span class="s1">) 
+         { 
+            dr -= </span><span class="s4">10</span><span class="s1">; 
+            carry = </span><span class="s0">true</span><span class="s1">; 
+         } 
+         </span><span class="s0">else</span><span class="s1"> 
+         { 
+            carry = </span><span class="s0">false</span><span class="s1">; 
+         } 
+          
+         result = String.valueOf(dr) + result; 
+      } 
+       
+      </span><span class="s0">if</span><span class="s1">(carry == </span><span class="s0">true</span><span class="s1">) 
+      { 
+         result = </span><span class="s5">&quot;1&quot; </span><span class="s1">+ result; 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">product of num1 and num2 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String mult(String num1 , String num2) 
+   { 
+      String digit1; 
+      String digit2; 
+       
+      String temp; 
+      String tempResult = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+      String carry = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+      String result; 
+       
+      </span><span class="s0">int </span><span class="s1">d1; 
+      </span><span class="s0">int </span><span class="s1">d2; 
+       
+      </span><span class="s0">int </span><span class="s1">numTrail = </span><span class="s4">0</span><span class="s1">; 
+       
+      ArrayList&lt;String&gt; toAdd = </span><span class="s0">new </span><span class="s1">ArrayList&lt;String&gt;(); 
+         
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = num2.length() - </span><span class="s4">1</span><span class="s1">; i &gt;= </span><span class="s4">0</span><span class="s1">; i --) 
+      { 
+         digit1 = num2.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+          
+         d1 = Integer.parseInt(digit1); 
+          
+         </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">k = num1.length() - </span><span class="s4">1</span><span class="s1">; k &gt;= </span><span class="s4">0</span><span class="s1">; k --) 
+         { 
+            digit2 = num1.substring(k , k + </span><span class="s4">1</span><span class="s1">); 
+             
+            d2 = Integer.parseInt(digit2); 
+             
+            temp = String.valueOf(d1 * d2); 
+             
+            temp = add(temp , carry); 
+             
+            </span><span class="s0">if</span><span class="s1">(temp.length() == </span><span class="s4">2</span><span class="s1">) 
+            { 
+               carry = temp.substring(</span><span class="s4">0 </span><span class="s1">, </span><span class="s4">1</span><span class="s1">); 
+               temp = temp.substring(</span><span class="s4">1 </span><span class="s1">, </span><span class="s4">2</span><span class="s1">); 
+            } 
+            </span><span class="s0">else</span><span class="s1"> 
+            { 
+               carry = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+            } 
+             
+            tempResult = temp + tempResult; 
+         } 
+          
+         tempResult = carry + tempResult; 
+          
+         tempResult = addTrailingZero(tempResult , numTrail);          
+          
+         toAdd.add(tempResult); 
+          
+         numTrail ++; 
+           
+         carry = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+         tempResult = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+      } 
+       
+      result = </span><span class="s5">&quot;0&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; toAdd.size(); i ++) 
+      { 
+         result = add(result , toAdd.get(i)); 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">difference of num1 and num2 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String sub(String num1 , String num2) 
+   { 
+      String result = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">boolean </span><span class="s1">borrow = </span><span class="s0">false</span><span class="s1">; 
+       
+      </span><span class="s0">int </span><span class="s1">numLength; 
+      </span><span class="s0">int </span><span class="s1">d1; 
+      </span><span class="s0">int </span><span class="s1">d2; 
+      </span><span class="s0">int </span><span class="s1">dt; 
+      </span><span class="s0">int </span><span class="s1">dr; 
+       
+      String digit1; 
+      String digit2; 
+    
+    
+      </span><span class="s0">if</span><span class="s1">(findLong(num1 , num2) == num1) 
+      { 
+         num2 = addLeadingZero(num2 , num1.length() - num2.length()); 
+      } 
+      </span><span class="s0">else if</span><span class="s1">(findLong(num1 , num2) == num2) 
+      { 
+         num1 = addLeadingZero(num1 , num2.length() - num1.length()); 
+      } 
+       
+      numLength = num1.length(); 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = numLength - </span><span class="s4">1</span><span class="s1">; i &gt;= </span><span class="s4">0</span><span class="s1">; i --) 
+      { 
+         digit1 = num1.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+         digit2 = num2.substring(i , i + </span><span class="s4">1</span><span class="s1">); 
+          
+         d1 = Integer.parseInt(digit1); 
+         d2 = Integer.parseInt(digit2); 
+          
+         </span><span class="s0">if</span><span class="s1">(borrow == </span><span class="s0">true</span><span class="s1">) 
+         { 
+            </span><span class="s0">if</span><span class="s1">(d1 == </span><span class="s4">0</span><span class="s1">) 
+            { 
+               d1 = </span><span class="s4">9</span><span class="s1">; 
+               borrow = </span><span class="s0">true</span><span class="s1">; 
+            } 
+            </span><span class="s0">else</span><span class="s1"> 
+            { 
+               d1 --; 
+               borrow = </span><span class="s0">false</span><span class="s1">; 
+            }   
+         } 
+          
+         </span><span class="s0">if</span><span class="s1">(d1 &lt; d2) 
+         { 
+            borrow = </span><span class="s0">true</span><span class="s1">; 
+            d1 += </span><span class="s4">10</span><span class="s1">; 
+         } 
+          
+         dr = d1 - d2; 
+          
+               
+         result = String.valueOf(dr) + result; 
+      } 
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">quotant of num1 and num2 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String div(String num1 , String num2) 
+   { 
+      String substring = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+      String toSub = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+       
+      String result = </span><span class="s5">&quot;&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">boolean </span><span class="s1">addZero = </span><span class="s0">false</span><span class="s1">; 
+      </span><span class="s0">boolean </span><span class="s1">firstTime = </span><span class="s0">true</span><span class="s1">; 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; num1.length(); i ++) 
+      {   
+         addZero = </span><span class="s0">false</span><span class="s1">; 
+                   
+         </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">k = i + </span><span class="s4">1</span><span class="s1">; k &lt;= num1.length(); k ++) 
+         { 
+            substring += num1.substring(k - </span><span class="s4">1 </span><span class="s1">, k); 
+            </span><span class="s0">if</span><span class="s1">(substring.equals(</span><span class="s5">&quot;0&quot;</span><span class="s1">)) 
+            { 
+               </span><span class="s0">break</span><span class="s1">; 
+            } 
+            </span><span class="s0">else if</span><span class="s1">(findLarge(substring , num2).equals(substring) || findLarge(substring , num2).equals(</span><span class="s5">&quot;&quot;</span><span class="s1">)) 
+            { 
+               </span><span class="s0">if</span><span class="s1">(addZero == </span><span class="s0">true </span><span class="s1">&amp;&amp; firstTime == </span><span class="s0">false</span><span class="s1">) 
+               { 
+                  result += </span><span class="s5">&quot;0&quot;</span><span class="s1">; 
+               } 
+               firstTime = </span><span class="s0">false</span><span class="s1">; 
+               </span><span class="s0">break</span><span class="s1">; 
+            } 
+             
+            </span><span class="s0">if</span><span class="s1">(addZero == </span><span class="s0">true </span><span class="s1">&amp;&amp; firstTime == </span><span class="s0">false</span><span class="s1">) 
+            { 
+               result += </span><span class="s5">&quot;0&quot;</span><span class="s1">; 
+            } 
+             
+            addZero = </span><span class="s0">true</span><span class="s1">; 
+             
+            i ++; 
+         } 
+          
+         </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">n = </span><span class="s4">0</span><span class="s1">; n &lt;= </span><span class="s4">10</span><span class="s1">; n ++) 
+         { 
+            toSub = mult(String.valueOf(n) , num2); 
+             
+            </span><span class="s0">if</span><span class="s1">(findLarge(toSub , substring).equals(toSub)) 
+            { 
+               result += String.valueOf(n - </span><span class="s4">1</span><span class="s1">); 
+               substring = sub(substring , mult(String.valueOf(n - </span><span class="s4">1</span><span class="s1">) , num2)); 
+               </span><span class="s0">break</span><span class="s1">; 
+            } 
+         } 
+      } 
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">num1 
+    * </span><span class="s3">@param </span><span class="s2">num2 
+    * </span><span class="s3">@return </span><span class="s2">mod of num1 and num2 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String mod(String num1 , String num2) 
+   { 
+      String result; 
+    
+      String div = div(num1 , num2); 
+       
+      div = mult(div , num2); 
+       
+      result = sub(num1 , div); 
+       
+      result = removeLeadingZero(result); 
+       
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@return </span><span class="s2">facorial of number 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String factorial(String number) 
+   { 
+      String result = </span><span class="s5">&quot;1&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">1</span><span class="s1">; i &lt;= Integer.parseInt(number); i ++) 
+      { 
+         result = mult(result , String.valueOf(i)); 
+      } 
+       
+      </span><span class="s0">return </span><span class="s1">result; 
+   } 
+ 
+   </span><span class="s2">/** 
+    * </span><span class="s3">@param </span><span class="s2">number 
+    * </span><span class="s3">@param </span><span class="s2">power 
+    * </span><span class="s3">@return </span><span class="s2">power of number to its power 
+    */</span><span class="s1"> 
+   </span><span class="s0">static </span><span class="s1">String pow(String number , String power) 
+   { 
+      String result = </span><span class="s5">&quot;1&quot;</span><span class="s1">; 
+       
+      </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; Integer.parseInt(power); i ++) 
+      { 
+         result = mult(result , number); 
+      } 
+      </span><span class="s0">return </span><span class="s1">result; 
+   }   
+}</span></pre>
+</body>
+</html>

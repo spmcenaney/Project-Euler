@@ -17,6 +17,10 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="1" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\spmce\Documents\GitHub\Project-Euler\exportToHTML" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="Project-Euler" />
   </component>
