@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 
+/**
+ * @author Mathew Fan
+ * @version 1.0
+ */
 public class StringMath
 {
+   /**
+    * @param number
+    * @return boolen if String is equal to zero
+    */
    static boolean isZero(String number)
-   {      
+   {
       for(int i = 0; i < number.length(); i ++)
       {  
          if(!(number.substring(i , i + 1).equals("0")))
@@ -13,7 +21,12 @@ public class StringMath
       }
       return true;
    }
-   
+
+   /**
+    * @param number
+    * @param numLeadZero
+    * @return String number with leading zero
+    */
    static String addLeadingZero(String number , int numLeadZero)
    {   
       for(int i = 0; i < numLeadZero; i ++)
@@ -23,7 +36,12 @@ public class StringMath
       
       return number;
    }
-   
+
+   /**
+    * @param number
+    * @param numTrailZero
+    * @return String number with Trailing Zero
+    */
    static String addTrailingZero(String number , int numTrailZero)
    {
       for(int i = 0; i < numTrailZero; i ++)
@@ -33,7 +51,11 @@ public class StringMath
       
       return number;
    }
-   
+
+   /**
+    * @param number
+    * @return number with removed leading zero
+    */
    static String removeLeadingZero(String number)
    {
       String temp;
@@ -55,12 +77,21 @@ public class StringMath
          }
       }
    }
-   
+
+   /**
+    * @param number
+    * @return number with removed trailing zero or "Like no U" if no trailing zeros
+    */
    static String removeTrailingZero(String number)
    {
-      return "";
+      return "Like no U";
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return number with longer length or "Like no U" if numbers are equal
+    */
    static String findLong(String num1 , String num2)
    {
       if(num1.length() > num2.length())
@@ -71,12 +102,17 @@ public class StringMath
       {
          return num2;
       }
-      else
-      {
-         return "";
-      }
+   // else
+   // {
+         return "Like no U";
+   // }
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return number with shorter length or "Like no U" if numbers are equal
+    */
    static String findShort(String num1 , String num2)
    {
       if(num1.length() < num2.length())
@@ -87,12 +123,17 @@ public class StringMath
       {
          return num2;
       }   
-      else
-      {
-         return "";
-      }
+   // else
+   // {
+         return "Like no U";
+   // }
    }
-   
+
+   /**
+    * @param n1
+    * @param n2
+    * @return number with larger value or "Like no U" if numbers are equal
+    */
    static String findLarge(String n1 , String n2)
    {
       int d1;
@@ -100,7 +141,7 @@ public class StringMath
       
       String num1 = n1;
       String num2 = n2;
-      
+
       if(!isZero(num1))
       {
          num1 = removeLeadingZero(num1);
@@ -137,14 +178,23 @@ public class StringMath
             return n2;
          }
       }
-      return "";
+      return "Like no U";
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return number with smaller value or "Like no U" if numbers are equal
+    */
    static String findSmall(String num1 , String num2)
    {
       return "";
    }
-   
+
+   /**
+    * @param number
+    * @return number of digits in String number
+    */
    static String digitSum(String number)
    {
       String result = "";
@@ -158,7 +208,12 @@ public class StringMath
       
       return result;
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return sum of num1 and num2
+    */
    static String add(String  num1 , String num2)
    {
       String result = "";
@@ -220,7 +275,12 @@ public class StringMath
       
       return result;
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return product of num1 and num2
+    */
    static String mult(String num1 , String num2)
    {
       String digit1;
@@ -288,7 +348,12 @@ public class StringMath
       
       return result;
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return difference of num1 and num2
+    */
    static String sub(String num1 , String num2)
    {
       String result = "";
@@ -351,8 +416,12 @@ public class StringMath
       }
       return result;
    }
-   
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return quotant of num1 and num2
+    */
    static String div(String num1 , String num2)
    {
       String substring = "";
@@ -408,7 +477,12 @@ public class StringMath
       }
       return result;
    }
-   
+
+   /**
+    * @param num1
+    * @param num2
+    * @return mod of num1 and num2
+    */
    static String mod(String num1 , String num2)
    {
       String result;
@@ -423,7 +497,11 @@ public class StringMath
       
       return result;
    }
-   
+
+   /**
+    * @param number
+    * @return facorial of number
+    */
    static String factorial(String number)
    {
       String result = "1";
@@ -435,7 +513,12 @@ public class StringMath
       
       return result;
    }
-   
+
+   /**
+    * @param number
+    * @param power
+    * @return power of number to its power
+    */
    static String pow(String number , String power)
    {
       String result = "1";
